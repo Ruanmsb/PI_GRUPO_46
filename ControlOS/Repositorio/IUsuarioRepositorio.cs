@@ -4,6 +4,7 @@ namespace ControlOS.Repositorio
 {
     public interface IUsuarioRepositorio
     {
-        Usuario Adicionar
+        List<UsuariosModel> BuscarTodos();
+        UsuariosModel Adicionar(UsuariosModel usuario);
     }
 }

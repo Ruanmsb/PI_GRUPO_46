@@ -9,6 +9,7 @@ namespace ControlOS.Data
         {
 
         }
-        public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<UsuariosModel> Usuarios { get; set; }
+        public DbSet<ClientesModel> Clientes{ get; set; }
     }
 }

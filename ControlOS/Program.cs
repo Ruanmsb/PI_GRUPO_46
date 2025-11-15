@@ -1,4 +1,5 @@
 using ControlOS.Data;
+using ControlOS.Repositorio;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -11,6 +12,9 @@ builder.Services.AddControllersWithViews();
 //Construtor de conexão do EF com BD SQL
 builder.Services.AddDbContext<BancoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+
+builder.Services.AddScoped<IUsuarioRepositorio, UsuariosRepositorio>();
+builder.Services.AddScoped<IClientesRepositorio, ClientesRepositorio>();
 
 
 var app = builder.Build();
