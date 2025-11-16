@@ -1,22 +1,21 @@
 ﻿@model ClientesModel
 
 @{
-    ViewData["Title"] = "Cadastrar Cliente";
+    ViewData["Title"] = "Editar Contato";
 }
 
 <div>
-    <h1>Cadastrar Clientes</h1>
-</div>
+    <h1>Editar Cliente</h1>
 
-<div class="container-clientes">
+    <form asp-controller="Clientes" asp-action="Editar" method="post">
 
-    <form asp-controller="Clientes" asp-action="Criar" method="post">
+        <input type="hidden" asp-for="Id"/>
 
         <label for="nomerazao">Nome ou Razão Social</label><br>
         <input type="text" asp-for="NomeRazao" id="nomerazao" required><br><br>
 
         <label for="email">E-mail:</label><br>
-        <input type="email" asp-for="Email" id="email" ><br><br>
+        <input type="email" asp-for="Email" id="email"><br><br>
 
         <label for="telefone">Telefone:</label><br>
         <input type="text" asp-for="Telefone" id="telefone" required><br><br>
@@ -31,7 +30,7 @@
         <input type="text" asp-for="Numero" id="Numero" required><br><br>
 
         <label for="complemento">Complemento:</label><br>
-        <input type="text" asp-for="Complemento" id="complemento" required><br><br>
+        <input type="text" asp-for="Complemento" id="complemento"><br><br>
 
         <label for="cidade">Cidade:</label><br>
         <input type="text" asp-for="Cidade" id="cidade" required><br><br>
@@ -42,16 +41,9 @@
         <label for="cep">CEP:</label><br>
         <input type="text" asp-for="CEP" id="cep" required><br><br>
 
-        <label for="dataCadastro">Data de Cadastro:</label><br>
-        <input type="date" asp-for="DataCadastro" id="dataCadastro" readonly><br><br>
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Salvar</button>
+        <a asp-controller="Clientes" asp-action="Index">Cancelar</a>
 
     </form>
-
-    <script>
-        const hoje = new Date().toISOString().split("T")[0];
-        document.getElementById("dataCadastro").value = hoje;
-    </script>
-
 </div>

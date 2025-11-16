@@ -1,0 +1,32 @@
+﻿@model List<ClientesModel>
+
+@{
+    ViewData["Title"] = "Ordens de Serviço";
+}
+
+<div>
+    <h1>Ordens de Serviço</h1>
+
+    <form asp-controller="OrdensServico" asp-action="Criar" method="post">
+
+        <label for="telefone">Telefone:</label><br>
+        <input type="text" id="telefone" name="Telefone" required><br><br>
+
+        <label for="cargo">Cargo do Usuário:</label><br>
+        <select id="cargo" name="cargo" required>
+            <option value="Gestor">Gestor</option>
+            <option value="Tecnico">Técnico</option>
+        </select><br><br>
+
+        <label for="dataCadastro">Data de Cadastro:</label><br>
+        <input type="date" id="dataCadastro" name="DataCadastro" readonly><br><br>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+
+    <script>
+        const hoje = new Date().toISOString().split("T")[0];
+        document.getElementById("dataCadastro").value = hoje;
+    </script>
+</div>

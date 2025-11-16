@@ -2,7 +2,7 @@
 
 namespace ControlOS.Controllers
 {
-    public class ListaOrdemServico : Controller
+    public class OrdensServico : Controller
     {
         public IActionResult Index()
         {

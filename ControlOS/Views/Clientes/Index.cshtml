@@ -1,9 +1,37 @@
-﻿@{
+﻿@model List<ClientesModel>
+
+@{
     ViewData["Title"] = "Clientes";
 }
 
 <div>
+
     <h1>Clientes</h1>
     <p><a asp-controller="Clientes" asp-action="Criar">Cadastrar um Cliente</a></p>
+
+    <table>
+        <tr>
+            <th>Nome / Razão Social:</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>CPF / CNPJ</th>
+        </tr>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (ClientesModel cliente in Model)
+                {
+                    <tr>
+                        <th>@cliente.NomeRazao</th>
+                        <th>@cliente.Email</th>
+                        <th>@cliente.Telefone</th>
+                        <th>@cliente.CpfCnpj</th>
+                        <th><a role="button" asp-controller="Clientes" asp-action="Editar" asp-route-id="@cliente.Id">Editar</a></th>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
 </div>
+
 
