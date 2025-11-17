@@ -15,6 +15,7 @@ builder.Services.AddDbContext<BancoContext>(options =>
 
 builder.Services.AddScoped<IUsuarioRepositorio, UsuariosRepositorio>();
 builder.Services.AddScoped<IClientesRepositorio, ClientesRepositorio>();
+builder.Services.AddScoped<IOrdensServicoRepositorio, OrdensServicoRepositorio>();
 
 
 var app = builder.Build();

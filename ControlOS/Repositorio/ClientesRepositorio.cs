@@ -27,7 +27,7 @@ namespace ControlOS.Repositorio
 
         public ClientesModel Atualizar(ClientesModel cliente)
         {
-            ClientesModel contatoDB = ListarPorId(cliente.Id);
+            ClientesModel? contatoDB = ListarPorId(cliente.Id);
 
             if (cliente == null) throw new System.Exception("Erro na atualização do Cliente");
 
