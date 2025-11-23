@@ -10,65 +10,81 @@
 }
 
 
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
 <div>
     <h1>Visualizando OS</h1>
 
-    <form asp-controller="OrdensServico" asp-action="Editar" method="post">
+    <form asp-controller="OrdensServico" asp-action="Editar" method="post" class="form-grid">
 
-        <label for="tiposervico">Selecione o Tipo de Serviço:</label><br>
-        <select id="tiposervico" asp-for="TipoServico" required>
-            <option value="Manutencao">Manutenção</option>
-            <option value="Instalacao">Instalação</option>
-            <option value="Revisao">Revisao</option>
-        </select><br><br>
+        <div class="form-group">
+            <label for="tiposervico">Selecione o Tipo de Serviço:</label>
+            <select id="tiposervico" asp-for="TipoServico" required>
+                <option value="Manutencao">Manutenção</option>
+                <option value="Instalacao">Instalação</option>
+                <option value="Revisao">Revisao</option>
+            </select>
+        </div>
 
-        <label for="externointerno">Selecione se é Interno ou Externo:</label><br>
-        <select id="externointerno" asp-for="ExternoInterno" required>
-            <option value="Externo">Externo</option>
-            <option value="Interno">Interno</option>
-        </select><br><br>
+        <div class="form-group">
+            <label for="externointerno">Selecione se é Interno ou Externo:</label>
+            <select id="externointerno" asp-for="ExternoInterno" required>
+                <option value="Externo">Externo</option>
+                <option value="Interno">Interno</option>
+            </select>
+        </div>
 
-        <label for="statusos">Status da OS:</label><br>
-        <select id="statusos" asp-for="StatusOS" required>
-            <option value="Pendente">Pendente</option>
-            <option value="EmAndamento">Em Andamento</option>
-            <option value="Finalizado">Finalizado</option>
-            <option value="Cancelado">Cancelado</option>
-        </select><br><br>
+        <div class="form-group">
+            <label for="statusos">Status da OS:</label>
+            <select id="statusos" asp-for="StatusOS" required>
+                <option value="Pendente">Pendente</option>
+                <option value="EmAndamento">Em Andamento</option>
+                <option value="Finalizado">Finalizado</option>
+                <option value="Cancelado">Cancelado</option>
+            </select>
+        </div>
 
+        <div class="form-group full-width">
+            <label>Descrição do Serviço</label>
+            <textarea asp-for="DescricaoServico" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="DescricaoServico" class="text-danger"></span>
+        </div>
 
-        <label>Descrição do Serviço</label><br />
-        <textarea asp-for="DescricaoServico" class="form-control" rows="5"></textarea>
-        <span asp-validation-for="DescricaoServico" class="text-danger"></span>
-        <br /><br />
+        <div class="form-group">
+            <label for="dataos">Data da OS:</label>
+            <input asp-for="DataOS" type="date" id="dataos" class="form-control" required>
+            <span asp-validation-for="DataOS" class="text-danger"></span>
+        </div>
 
-        <label for="dataos">Data da OS:</label><br>
-        <input asp-for="DataOS" type="date" id="dataos" class="form-control" required>
-        <span asp-validation-for="DataOS" class="text-danger"></span>
-        <br><br>
+        <div class="form-group">
+            <label>Cliente</label>
+            <select asp-for="NomeCliente" class="form-control" required>
+                <option value="">-- selecione --</option>
+                @foreach (var c in clientes)
+                {
+                    <option value="@c.NomeRazao">@c.NomeRazao</option>
+                }
+            </select>
+        </div>
 
-        <label>Cliente</label><br />
-        <select asp-for="NomeCliente" class="form-control" required>
-            <option value="">-- selecione --</option>
-            @foreach (var c in clientes)
-            {
-                <option value="@c.NomeRazao">@c.NomeRazao</option>
-            }
-        </select>
-        <br /><br />
+        <div class="form-group">
+            <label>Técnico</label>
+            <select asp-for="NomeTecnico" class="form-control" required>
+                <option value="">-- selecione --</option>
+                @foreach (var t in usuarios)
+                {
+                    <option value="@t.Name">@t.Name</option>
+                }
+                }
+            </select>
+        </div>
 
-        <label>Técnico</label><br />
-        <select asp-for="NomeTecnico" class="form-control" required>
-            <option value="">-- selecione --</option>
-            @foreach (var t in usuarios)
-            {
-                <option value="@t.Name">@t.Name</option>
-            }
-        </select>
-        <br /><br />
-
-        <button type="submit">Salvar</button>
-        <a asp-controller="OrdensServico" asp-action="Index">Voltar</a>
+        <div class="buttons full-width">
+            <button type="submit" class="btn-save">Salvar</button>
+            <a asp-controller="OrdensServico" asp-action="Index" class="btn-back">Voltar</a>
+        </div>
 
     </form>
 </div>

@@ -7,6 +7,9 @@ html {
     font-size: 16px;
   }
 }
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -16,7 +19,218 @@ html {
   position: relative;
   min-height: 100%;
 }
+.link{
+    font-size:30px;
+}
+.tabela-os-body, .tabela-cliente-body, .tabela-usuario-body {
+    background-color: #eeeeee;
+}
+.tabela-os-cabecalho, .tabela-cliente-cabecalho, .tabela-usuario-cabecalho {
+    background-color: #147CA6;
+}
+.tabela-os-cabecalho-item, .tabela-cliente-cabecalho-item, .tabela-usuario-cabecalho-item {
+    color: #ffffff;
+}
+.add-cliente, .add-usuario, .add-os {
+    background-color: #023373;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+}
+.botao-index-home{
+    text-decoration:none;
+    color:#ffffff;
+}
+/*status da OS*/
+.status-pendente {
+    background-color: grey;
+    color: white;
+}
 
-body {
-  margin-bottom: 60px;
+.status-andamento {
+    background-color: orange;
+    color: white;
+}
+
+.status-finalizado{
+    background-color: green;
+    color: white;
+}
+
+.status-cancelado {
+    background-color: red;
+    color: white;
+}
+/*Fim status da OS*/
+
+
+/*FORMULARIOS EDICAO*/
+
+.form-container {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.form-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.form-input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .form-input:focus {
+        outline: none;
+        border-color: #777;
+        box-shadow: 0 0 3px rgba(0,0,0,0.15);
+    }
+
+.form-group.nome {
+    flex: 1 1 100%;
+}
+
+.form-group.medio {
+    flex: 1 1 45%;
+}
+
+.form-group.pequeno {
+    flex: 1 1 20%;
+}
+
+.form-group.grande {
+    flex: 1 1 60%;
+}
+
+.form-group.complemento {
+    flex: 1 1 30%;
+}
+
+.form-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s ease;
+    margin-left: 8px;
+}
+
+    .btn:hover {
+        opacity: 0.85;
+    }
+
+.btn-primary {
+    border: none;
+}
+
+.btn-secondary {
+    border: 1px solid #bbb;
+}
+
+@media (max-width: 600px) {
+    .form {
+        flex-direction: column;
+    }
+
+    .form-group,
+    .form-group.nome,
+    .form-group.medio,
+    .form-group.pequeno,
+    .form-group.grande,
+    .form-group.complemento {
+        flex: 1 1 100%;
+    }
+
+    .form-actions {
+        justify-content: center;
+    }
+}
+
+/*FIM FORMULARIOS EDICAO*/
+
+/* HEADER */
+header {
+    width: 100%;
+    background-color: #023373;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.logo-area h1 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.nav-item {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav-item:hover {
+    background-color: #e0e0e0; 
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .top-nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 }

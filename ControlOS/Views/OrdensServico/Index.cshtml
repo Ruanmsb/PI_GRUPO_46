@@ -3,23 +3,27 @@
 @{
     ViewData["Title"] = "Ordens de Serviço";
 }
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+<h1>Ordens de Serviço</h1>
+
+<p><a class="add-os" asp-controller="OrdensServico" asp-action="Criar">ADICIONAR OS</a></p>
 
 <div>
-    <h1>Ordens de Serviço</h1>
 
-    <a asp-controller="OrdensServico" asp-action="Criar" >Adicionar uma OS</a>
-
-    <table>
-        <tr>
-            <th>Tipo de Serviço</th>
-            <th>Externo/Interno</th>
-            <th>Status OS</th>
-            <th>Descrição</th>
-            <th>Data</th>
-            <th>Cliente</th>
-            <th>Técnico</th>
+    <table class="tabela-os">
+        <tr class="tabela-os-cabecalho">
+            <th class="tabela-os-cabecalho-item">SERVIÇO</th>
+            <th class="tabela-os-cabecalho-item">EXTERNO / INTERNO</th>
+            <th class="tabela-os-cabecalho-item">STATUS</th>
+            <th class="tabela-os-cabecalho-item">DESCRIÇÃO</th>
+            <th class="tabela-os-cabecalho-item">DATA</th>
+            <th class="tabela-os-cabecalho-item">CLIENTE</th>
+            <th class="tabela-os-cabecalho-item">TÉCNICO</th>
         </tr>
-        <tbody>
+        <tbody class="tabela-os-body">
             @if (Model != null && Model.Any())
             {
                 foreach (OrdensServicoModel os in Model)
@@ -27,12 +31,18 @@
                     <tr>
                         <th>@os.TipoServico</th>
                         <th>@os.ExternoInterno</th>
-                        <th>@os.StatusOS</th>
+                        <th class="@(os.StatusOS == "Pendente" ? "status-pendente" :
+                                         os.StatusOS == "EmAndamento" ? "status-andamento" :
+                                         os.StatusOS == "Finalizado" ? "status-finalizado" :
+                                         os.StatusOS == "Cancelado" ? "status-cancelado" : "")">
+                                         @os.StatusOS
+                        </th>
+
                         <th>@os.DescricaoServico</th>
                         <th>@os.DataOS</th>
                         <th>@os.NomeCliente</th>
                         <th>@os.NomeTecnico</th>
-                        <th><a role="button" asp-controller="OrdensServico" asp-action="Editar" asp-route-id="@os.Id">Visualizar</a></th>
+                        <th><a role="button" asp-controller="OrdensServico" asp-action="Editar" asp-route-id="@os.Id">VISUALIZAR</a></th>
                     </tr>
                 }
             }

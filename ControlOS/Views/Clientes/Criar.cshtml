@@ -4,48 +4,73 @@
     ViewData["Title"] = "Cadastrar Cliente";
 }
 
-<div>
-    <h1>Cadastrar Clientes</h1>
-</div>
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
 
-<div class="container-clientes">
+<div class="form-container">
+    <h1 class="form-title">Cadastrar Clientes</h1>
 
-    <form asp-controller="Clientes" asp-action="Criar" method="post">
+    <form asp-controller="Clientes" asp-action="Criar" method="post" class="form">
 
-        <label for="nomerazao">Nome ou Razão Social</label><br>
-        <input type="text" asp-for="NomeRazao" id="nomerazao" required><br><br>
+        <div class="form-group nome">
+            <label for="nomerazao" class="form-label">Nome ou Razão Social</label>
+            <input type="text" asp-for="NomeRazao" id="nomerazao" class="form-input" required>
+        </div>
 
-        <label for="email">E-mail:</label><br>
-        <input type="email" asp-for="Email" id="email" ><br><br>
+        <div class="form-group medio">
+            <label for="email" class="form-label">E-mail:</label>
+            <input type="email" asp-for="Email" id="email" class="form-input">
+        </div>
 
-        <label for="telefone">Telefone:</label><br>
-        <input type="text" asp-for="Telefone" id="telefone" required><br><br>
+        <div class="form-group medio">
+            <label for="telefone" class="form-label">Telefone:</label>
+            <input type="text" asp-for="Telefone" id="telefone" class="form-input" required>
+        </div>
 
-        <label for="cpfcnpj">CPF ou CNPJ:</label><br>
-        <input type="text" asp-for="CpfCnpj" id="cpfcnpj" required><br><br>
+        <div class="form-group medio">
+            <label for="cpfcnpj" class="form-label">CPF ou CNPJ:</label>
+            <input type="text" asp-for="CpfCnpj" id="cpfcnpj" class="form-input" required>
+        </div>
 
-        <label for="rua">Rua:</label><br>
-        <input type="text" asp-for="Rua" id="rua" required><br><br>
+        <div class="form-group grande">
+            <label for="rua" class="form-label">Rua:</label>
+            <input type="text" asp-for="Rua" id="rua" class="form-input" required>
+        </div>
 
-        <label for="Numero">Número:</label><br>
-        <input type="text" asp-for="Numero" id="Numero" required><br><br>
+        <div class="form-group pequeno">
+            <label for="Numero" class="form-label">Número:</label>
+            <input type="text" asp-for="Numero" id="Numero" class="form-input" required>
+        </div>
 
-        <label for="complemento">Complemento:</label><br>
-        <input type="text" asp-for="Complemento" id="complemento" required><br><br>
+        <div class="form-group complemento">
+            <label for="complemento" class="form-label">Complemento:</label>
+            <input type="text" asp-for="Complemento" id="complemento" class="form-input" required>
+        </div>
 
-        <label for="cidade">Cidade:</label><br>
-        <input type="text" asp-for="Cidade" id="cidade" required><br><br>
+        <div class="form-group medio">
+            <label for="cidade" class="form-label">Cidade:</label>
+            <input type="text" asp-for="Cidade" id="cidade" class="form-input" required>
+        </div>
 
-        <label for="bairro">Bairro:</label><br>
-        <input type="text" asp-for="Bairro" id="bairro" required><br><br>
+        <div class="form-group medio">
+            <label for="bairro" class="form-label">Bairro:</label>
+            <input type="text" asp-for="Bairro" id="bairro" class="form-input" required>
+        </div>
 
-        <label for="cep">CEP:</label><br>
-        <input type="text" asp-for="CEP" id="cep" required><br><br>
+        <div class="form-group pequeno">
+            <label for="cep" class="form-label">CEP:</label>
+            <input type="text" asp-for="CEP" id="cep" class="form-input" required>
+        </div>
 
-        <label for="dataCadastro">Data de Cadastro:</label><br>
-        <input type="date" asp-for="DataCadastro" id="dataCadastro" readonly><br><br>
+        <div class="form-group pequeno">
+            <label for="dataCadastro" class="form-label">Data de Cadastro:</label>
+            <input type="date" asp-for="DataCadastro" id="dataCadastro" class="form-input" readonly>
+        </div>
 
-        <button type="submit">Cadastrar</button>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
 
     </form>
 
@@ -53,5 +78,4 @@
         const hoje = new Date().toISOString().split("T")[0];
         document.getElementById("dataCadastro").value = hoje;
     </script>
-
 </div>
